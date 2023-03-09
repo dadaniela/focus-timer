@@ -47,8 +47,8 @@ button svg {
 .pause svg path,
 .stop svg path,
 .set svg path,
-.mute svg path,
-.unmute svg path {
+.muted svg path,
+.unmuted svg path {
     fill: var(--btn-selected-color);
 }
 
