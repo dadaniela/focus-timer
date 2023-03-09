@@ -6,22 +6,31 @@
 
 :root {
     font-size: 62.5%;
-    --bg-color: #1f1c1c;
-    --bg-color-light: rgba(59, 205, 250, 0.26);
-    --text-color: #f5f5f5;
-    --btn-selected-color: #3bcdfa;
-    --btn-unselected-color: #f0f8ff;
+    --bg-color: #001b2e;
+    --bg-color-light: hsla(207, 28%, 45%, 0.259);
+    --text-color: #eef3f9;
+    --btn-selected-color: #44d1b7;
+    --btn-unselected-color: #b3cde4;
+    --test: #537692;
 }
 
 body {
+    display: grid;
+    min-height: 100vh;
     background: var(--bg-color);
     color: var(--text-color);
     font-family: "Roboto";
 }
 
+main {
+    justify-self: center;
+    align-self: end;
+}
+
 #timer {
     display: flex;
     font-size: clamp(4rem, 4rem + 10vw, 8.8rem);
+    margin-bottom: 1.6rem;
 }
 
 button {
@@ -30,8 +39,17 @@ button {
     cursor: pointer;
 }
 
-button img {
+button svg {
     width: clamp(3rem, 2rem + 10vw, 6.4rem);
+}
+
+.play svg path,
+.pause svg path,
+.stop svg path,
+.set svg path,
+.mute svg path,
+.unmute svg path {
+    fill: var(--btn-selected-color);
 }
 
 .hide {
@@ -47,4 +65,14 @@ button img {
     border-radius: 9999px;
     width: clamp(10rem, 10rem + 30vw, 22.8rem); /* clamp(min size, ideal size, max size) */
     height: clamp(8rem, 5rem + 10vw, 10.8rem);
+}
+
+footer {
+    justify-self: end;
+    align-self: end;
+    padding: 0 4rem 3.2rem 0;
+}
+
+footer svg {
+    width: clamp(3rem, 2rem + 10vw, 5rem);
 }
