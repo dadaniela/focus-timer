@@ -6,7 +6,8 @@ const btnMuted = document.querySelector(".muted");
 const btnUnmuted = document.querySelector(".unmuted");
 const minutesDisplay = document.querySelector(".minutes");
 const secondsDisplay = document.querySelector(".seconds");
-let minutes;
+let minutes = Number(minutesDisplay.textContent)
+let timerTimeOut;
 
 function resetControls() {
     btnPlay.classList.remove("hide")
@@ -20,8 +21,13 @@ function updateTimerDisplay(minutes, seconds) {
     secondsDisplay.textContent = String(seconds).padStart(2, "0")
 }
 
+function resetTimer() {
+    updateTimerDisplay(minutes, 0)
+    clearTimeout(timerTimeOut)
+}
+
 function countdown() {
-    setTimeout(function() {
+    timerTimeOut = setTimeout(function() {
         let currentSeconds = Number(secondsDisplay.textContent)
         let currentMinutes = Number(minutesDisplay.textContent)
 
@@ -33,7 +39,7 @@ function countdown() {
         }
 
         if(currentSeconds <= 0) {
-            currentSeconds = 5
+            currentSeconds = 60
             --currentMinutes
             console.log(currentMinutes + " min")
             console.log(currentSeconds + " sec")
@@ -56,10 +62,12 @@ btnPlay.addEventListener("click", function() {
 btnPause.addEventListener("click", function() {
     btnPause.classList.add("hide")
     btnPlay.classList.remove("hide")
+    clearTimeout(timerTimeOut)
 })
 
 btnStop.addEventListener("click", function() {
     resetControls()
+    resetTimer()
 })
 
 btnMuted.addEventListener("click", function() {
@@ -73,7 +81,11 @@ btnUnmuted.addEventListener("click", function() {
 })
 
 btnSet.addEventListener("click", function() {
-    minutes = prompt(`For how many minutes you'd like to focus?`) || 0
-    console.log(minutes + " do prompt")
+    let promptMinutes = prompt(`For how many minutes you'd like to focus?`) || 0
+    if(!promptMinutes) {
+        resetTimer()
+        return
+    }
+    minutes = promptMinutes
     updateTimerDisplay(minutes, 0)
 })
