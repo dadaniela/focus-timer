@@ -37,11 +37,8 @@ function countdown() {
             --currentMinutes
             console.log(currentMinutes + " min")
             console.log(currentSeconds + " sec")
-            // minutesDisplay.textContent = String(currentMinutes - 1).padStart(2, "0")
-            updateTimerDisplay(String(currentMinutes -1), currentSeconds)
         }
 
-        // secondsDisplay.textContent = String(currentSeconds - 1).padStart(2, "0")
         updateTimerDisplay(currentMinutes, String(currentSeconds -1))
 
         countdown();
@@ -76,7 +73,7 @@ btnUnmuted.addEventListener("click", function() {
 })
 
 btnSet.addEventListener("click", function() {
-    minutes = prompt(`For how many minutes you'd like to focus?`)
+    minutes = prompt(`For how many minutes you'd like to focus?`) || 0
     console.log(minutes + " do prompt")
     updateTimerDisplay(minutes, 0)
 })
