@@ -35,7 +35,7 @@ export function Timer({
             }
 
             if(currentSeconds <= 0) {
-                currentSeconds = 4
+                currentSeconds = 60
                 --currentMinutes
             }
 
