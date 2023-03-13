@@ -1,7 +1,3 @@
-// const buttonPressAudio = new Audio("../assets/btn-click.wav")
-// const kitchenTimer = new Audio("../assets/alarm-off.mp3")
-// const bgAudio = new Audio("../assets/bg-audio.mp3")
-
 const btnPlay = document.querySelector(".play");
 const btnPause = document.querySelector(".pause");
 const btnStop = document.querySelector(".stop");

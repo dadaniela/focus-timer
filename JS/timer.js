@@ -1,3 +1,5 @@
+import Sounds from "./sounds.js"
+
 export function Timer({
     minutesDisplay,
     secondsDisplay,
@@ -28,11 +30,12 @@ export function Timer({
             if(currentMinutes <= 0 && currentSeconds <= 0) {
                 resetControls()
                 updateDisplay()
+                Sounds().timerEnded()
                 return
             }
 
             if(currentSeconds <= 0) {
-                currentSeconds = 60
+                currentSeconds = 4
                 --currentMinutes
             }
 
