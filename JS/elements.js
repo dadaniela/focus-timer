@@ -7,7 +7,7 @@ const btnUnmuted = document.querySelector(".unmuted");
 const minutesDisplay = document.querySelector(".minutes");
 const secondsDisplay = document.querySelector(".seconds");
 
-export const elements = {
+export {
     btnPlay,
     btnPause,
     btnStop,

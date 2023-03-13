@@ -3,6 +3,8 @@ export default function() {
     const alarmOff = new Audio("https://github.com/dadaniela/focus-timer/blob/main/assets/alarm-off.mp3?raw=true")
     const bgTrack = new Audio("https://github.com/dadaniela/focus-timer/blob/main/assets/bg-audio.mp3?raw=true")
 
+    bgTrack.loop
+
     function pressBtn() {
         btnClick.play()
     }
